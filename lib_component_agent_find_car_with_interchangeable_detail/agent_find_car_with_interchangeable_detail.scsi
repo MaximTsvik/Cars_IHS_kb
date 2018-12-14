@@ -1,0 +1,453 @@
+agent_find_car_with_interchangeable_detail
+=> nrel_main_idtf:
+	[агентная scp-программа поиска автомобилей со схожей запчастью] (* <- lang_ru;; *);
+	[agent scp-program of finding cars with interchangeable detail] (* <- lang_en;; *);
+<- agent_scp_program;;
+
+scp_program -> agent_find_car_with_interchangeable_detail
+(*
+    -> rrel_params: .agent_find_car_with_interchangeable_detail_params 
+	(*
+		-> rrel_1: rrel_in: _event;;
+		-> rrel_2: rrel_in: _input_arc;;
+	*);;
+
+    -> rrel_operators: .agent_find_car_with_interchangeable_detail_operator_set
+    (*
+        -> rrel_init: .operator0A
+		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_assign: rrel_scp_var: _temp;;
+			-> rrel_2: rrel_fixed: rrel_scp_var: _input_arc;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _quest;;
+
+			=> nrel_then: .operator0B;;
+			=> nrel_else: .agent_search_car_with_interchangeable_parts_operator_return;;
+		*);;
+
+        ->.operator0B
+		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_const: action_find_car_with_interchangeable_detail;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _quest;;
+
+			=> nrel_then: .operator0C_1arg;;
+			=> nrel_else: .agent_search_car_with_interchangeable_parts_operator_return;;
+		*);;
+
+		->.operator0C_1arg
+        (*
+            <- searchElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: rrel_node: _car;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_role_relation: rrel_1;;
+
+            =>nrel_then:.operator0C_2arg;;
+            =>nrel_else:.agent_search_car_with_interchangeable_parts_operator_return;;
+        *);;
+
+        ->.operator0C_2arg
+        (*
+            <- searchElStr5;;
+
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+		  	-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+		  	-> rrel_3: rrel_assign: rrel_scp_var: rrel_node: _detail_type;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+		  	-> rrel_5: rrel_fixed: rrel_scp_const: rrel_role_relation: rrel_2;;
+
+            =>nrel_then:.agent_search_car_with_interchangeable_parts_operator1;;
+            =>nrel_else:.agent_search_car_with_interchangeable_parts_operator_return;;
+        *);;
+
+        -> .agent_search_car_with_interchangeable_parts_operator1
+            (*
+                <- searchElStr5;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_var: _car;;
+                -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
+                -> rrel_3: rrel_assign: rrel_scp_var: _current_detail;;
+                -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+                -> rrel_5: rrel_fixed: rrel_scp_var: _detail_type;;
+
+                => nrel_then: .agent_search_car_with_interchangeable_parts_operator2;; 
+                => nrel_else: .agent_search_car_with_interchangeable_parts_operator_return;;
+            *);;
+
+        -> .agent_search_car_with_interchangeable_parts_operator2
+            (*
+                <- searchElStr3;;
+
+                -> rrel_1: rrel_assign: rrel_scp_var:  rrel_node: _current_type;;
+                -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+                -> rrel_3: rrel_fixed: rrel_scp_var: _current_detail;;
+
+                => nrel_then: .agent_search_car_with_interchangeable_parts_operatorers;; 
+                => nrel_else: .agent_search_car_with_interchangeable_parts_operator_return;;
+            *);;
+
+            -> .agent_search_car_with_interchangeable_parts_operatorers
+            (*
+                <- printEl;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_var: _current_type;;
+
+                => nrel_goto: .agent_search_car_with_interchangeable_parts_operator3;; 
+
+            *);;
+
+		
+
+            ->  .agent_search_car_with_interchangeable_parts_operator3
+            (*
+                <- searchSetStr3;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_const: concept_car;;
+                -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+                -> rrel_3: rrel_assign: rrel_scp_var: _unknown_car;;
+
+                -> rrel_set_3: rrel_assign: rrel_scp_var: rrel_set: _unchecked_cars;;
+
+                => nrel_then: .agent_search_car_with_interchangeable_parts_operator4A;; 
+                => nrel_else: .agent_search_car_with_interchangeable_parts_operator_return;;
+            *);;
+
+            -> .agent_search_car_with_interchangeable_parts_operator4A  
+            (*
+                <- genEl;;
+
+                -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: _cars;;
+
+                => nrel_goto: .agent_search_car_with_interchangeable_parts_operator4B;;
+            *);;
+
+        -> .agent_search_car_with_interchangeable_parts_operator4B
+            (*
+                <- searchElStr3;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_var: _unchecked_cars;;
+                -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_car;;
+                -> rrel_3: rrel_assign: rrel_scp_var: _current_car;;
+
+                => nrel_then: .agent_search_car_with_interchangeable_parts_operator5;; 
+                => nrel_else: .agent_search_car_with_interchangeable_parts_gen_answer1;;
+            *);;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        -> .agent_search_car_with_interchangeable_parts_operator5
+            (*
+                <- searchElStr5;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_var: _current_car;;
+                -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
+                -> rrel_3: rrel_assign: rrel_scp_var:  _current_car_detail;;
+                -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+                -> rrel_5: rrel_fixed: rrel_scp_var: _detail_type;;
+
+                => nrel_then: .agent_search_car_with_interchangeable_parts_operatorer;;
+                => nrel_else: .agent_search_car_with_interchangeable_parts_operator8;; 
+            *);;
+
+
+            -> .agent_search_car_with_interchangeable_parts_operatorer
+            (*
+                <- printEl;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_var: _current_type;;
+
+                => nrel_goto: .agent_search_car_with_interchangeable_parts_operatorerer;; 
+
+            *);;
+
+            -> .agent_search_car_with_interchangeable_parts_operatorerer
+            (*
+                <- printEl;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_var: _current_car_detail;;
+
+                => nrel_goto: .agent_search_car_with_interchangeable_parts_operator6;; 
+
+            *);;
+
+
+
+        -> .agent_search_car_with_interchangeable_parts_operator6
+            (*
+                <- searchElStr3;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_var: _current_type;;
+                -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+                -> rrel_3: rrel_fixed: rrel_scp_var: _current_car_detail;;
+
+                => nrel_then: .agent_search_car_with_interchangeable_parts_operator7;; 
+                => nrel_else: .agent_search_car_with_interchangeable_parts_operator8;;
+            *);;
+
+        -> .agent_search_car_with_interchangeable_parts_operator7
+            (*
+                <- genElStr3;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_var: _cars;;
+                -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc1;;
+                -> rrel_3: rrel_fixed: rrel_scp_var: _current_car;;
+
+                => nrel_goto: .agent_search_car_with_interchangeable_parts_operator8;;
+            *);;
+
+        -> .agent_search_car_with_interchangeable_parts_operator8
+            (*
+                <- eraseEl;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: rrel_pos_const_perm: _arc_car;;
+
+                => nrel_goto: .agent_search_car_with_interchangeable_parts_operator4B;;
+            *);;
+
+           // --------------------------------------------------------------
+
+            -> .agent_search_car_with_interchangeable_parts_gen_answer1
+            (*
+                <- genEl;;
+
+                -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: _answer;;
+
+                => nrel_goto: .agent_search_car_with_interchangeable_parts_gen_answer2;;
+        *);;
+
+            -> .agent_search_car_with_interchangeable_parts_gen_answer2
+            (*
+                <- searchElStr3;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_var: _cars;;
+                -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc_del;;
+                -> rrel_3: rrel_fixed: rrel_scp_var: _car;;
+
+                => nrel_goto: .agent_search_car_with_interchangeable1;;
+        *);; 
+
+          -> .agent_search_car_with_interchangeable1
+            (*
+                <- eraseEl;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: rrel_pos_const_perm: _arc_del;;
+
+                => nrel_goto: .agent_search_car_with_interchangeable_parts_operatored;;
+            *);;
+
+
+         -> .agent_search_car_with_interchangeable_parts_operatored
+            (*
+                <- searchElStr3;;
+
+                -> rrel_1: rrel_fixed: rrel_scp_var: _cars;;
+                -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _belonging_arc;;
+                -> rrel_3: rrel_assign: rrel_scp_var: _result_elem;;
+
+                => nrel_then: .agent_search_car_with_interchangeable_parts_cars_found;;
+                => nrel_else: .agent_search_car_with_interchangeable_parts_cars_not_found;;
+        *);;
+
+        -> .agent_search_car_with_interchangeable_parts_cars_not_found
+        (*
+             <- genEl;;
+
+            -> rrel_1: rrel_assign: rrel_scp_var: rrel_node: rrel_const: _cars_not_found_message;;
+
+            => nrel_goto: .agent_search_car_with_interchangeable_parts_cars_not_found_1;;
+        *);;
+
+        -> .agent_search_car_with_interchangeable_parts_cars_not_found_1
+        (*
+             <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _cars_not_found_message;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _belonging_arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_const: [Авто с заданными деталями не найдены];;
+
+            => nrel_goto: .agent_search_car_with_interchangeable_parts_cars_not_found_2;;
+        *);;
+
+        -> .agent_search_car_with_interchangeable_parts_cars_not_found_2
+        (*
+             <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _belonging_arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _cars_not_found_message;;
+
+            => nrel_goto: .agent_search_car_with_interchangeable_parts_cars_not_found_3;;
+        *);;
+
+        -> .agent_search_car_with_interchangeable_parts_cars_not_found_3
+        (*
+             <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _cars_not_found_message;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _belonging_arc;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _elem;;
+
+            -> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_set_3: rrel_fixed: rrel_scp_var: _answer;;
+
+            => nrel_goto: .agent_of_finding_book_by_event_form_answer;;
+        *);;
+
+//-----------------------------------------------------------------------------------------------------------------------
+
+        -> .agent_search_car_with_interchangeable_parts_cars_found
+        (*
+             <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _cars;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _have_arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _car;;
+
+            => nrel_goto: .agent_of_finding_book_by_event_operator_add_to_answer;;
+        *);;
+
+       
+        -> .agent_of_finding_book_by_event_operator_add_to_answer
+        (*
+             <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _belonging_arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _car;;
+
+            => nrel_goto: .agent_of_finding_book_by_event_operator_add_to_answer_0;;
+        *);;
+        
+       -> .agent_of_finding_book_by_event_operator_add_to_answer_0
+        (*
+             <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _belonging_arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: rrel_node: _cars;;
+
+            => nrel_goto: .agent_of_finding_book_by_event_operator_add_to_answer_12;;
+        *);;
+        
+        
+        -> .agent_of_finding_book_by_event_operator_add_to_answer_12
+        (*
+             <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _cars;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _similarity_arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _car;;
+
+            -> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+
+            => nrel_then: .agent_of_finding_book_by_event_operator_add_to_answer_35;;
+            => nrel_else: .agent_of_finding_book_by_event_operator_return;;
+        *);;
+
+        -> .agent_of_finding_book_by_event_operator_add_to_answer_35   
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _cars;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _book_arc;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _result_elem;;
+
+            -> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_set_3: rrel_fixed: rrel_scp_var: _answer;;
+
+            => nrel_goto: .agent_of_finding_book_by_event_form_answer;;
+        *);;
+
+        -> .agent_of_finding_book_by_event_form_answer          
+            (*
+            <- genElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+            -> rrel_2: rrel_assign: rrel_const: rrel_common: rrel_scp_var: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
+
+            => nrel_goto: .agent_search_car_with_interchangeable_parts_operator_return;;   
+            *);;
+
+    /*-> .agent_search_car_with_interchangeable_parts_cars_found
+        (*
+             <- genElStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _belonging_arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _cars;;
+
+            => nrel_goto: .agent_search_car_with_interchangeable_parts_operator_add_to_answer_35;;
+        *);;
+
+    -> .agent_search_car_with_interchangeable_parts_operator_add_to_answer_35   
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _cars;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _cars_arc;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _result_elem;;
+
+            -> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_set_3: rrel_fixed: rrel_scp_var: _answer;;
+
+            => nrel_goto: .agent_search_car_with_interchangeable_parts_cars_answer;;
+        *);;
+        
+        
+        -> .agent_search_car_with_interchangeable_parts_operator_add_to_answer_12
+        (*
+             <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _cars;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _similarity_arc;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _car;;
+
+            -> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+
+            => nrel_then: .agent_search_car_with_interchangeable_parts_operator_add_to_answer_35;;
+            => nrel_else: .agent_search_car_with_interchangeable_parts_operator_return;;
+        *);;
+
+        -> .agent_search_car_with_interchangeable_parts_operator_add_to_answer_35   
+        (*
+            <- searchSetStr3;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _cars;;
+            -> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _cars_arc;;
+            -> rrel_3: rrel_assign: rrel_scp_var: _result_elem;;
+
+            -> rrel_set_2: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_set_3: rrel_fixed: rrel_scp_var: _answer;;
+
+            => nrel_goto: .agent_search_car_with_interchangeable_parts_cars_answer;;
+        *);;
+
+        -> .agent_search_car_with_interchangeable_parts_cars_answer         
+            (*
+            <- genElStr5;;
+
+            -> rrel_1: rrel_fixed: rrel_scp_var: _quest;;
+            -> rrel_2: rrel_assign: rrel_scp_var: rrel_common: _arc1;;
+            -> rrel_3: rrel_fixed: rrel_scp_var: _answer;;
+            -> rrel_4: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+            -> rrel_5: rrel_fixed: rrel_scp_const: nrel_answer;;
+
+            => nrel_goto: .agent_search_car_with_interchangeable_parts_operator_return;;   
+            *);;*/
+
+        -> .agent_search_car_with_interchangeable_parts_operator_return
+            (*
+            <- return;;
+            *);;
+    *);;
+*);;

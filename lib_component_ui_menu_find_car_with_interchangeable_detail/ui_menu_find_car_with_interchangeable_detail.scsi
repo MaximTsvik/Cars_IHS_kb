@@ -1,0 +1,23 @@
+ui_menu_find_car_with_interchangeable_detail
+<- ui_user_command_class_atom; ui_user_command_class_view_kb;
+=> nrel_main_idtf: 
+	[Какие машины имеют схожую деталь?]
+	(* <- lang_ru;;*);
+	[What is cars have interchangeable detail?] 
+	(* <- lang_en;;*);;
+
+ui_menu_find_car_with_interchangeable_detail
+=> ui_nrel_command_template:
+	[*
+		action_find_car_with_interchangeable_detail _-> ._action_find_car_with_interchangeable_detail_instance
+			(*
+                _-> rrel_1:: ui_arg_1;;
+				_-> rrel_2:: ui_arg_2;;
+			*);;
+		._action_find_car_with_interchangeable_detail_instance _<- question;;
+	*];;
+
+ui_menu_find_car_with_interchangeable_detail
+=> ui_nrel_command_lang_template: 
+	[Поиск автомобилей, имеющих схожую деталь, по $ui_arg_2 для $ui_arg_1] (* <- lang_ru;;*);
+[Search cars with interchangeable $ui_arg_2 for $ui_arg_1] (* <- lang_en;;*);;

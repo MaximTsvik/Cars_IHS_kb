@@ -1,0 +1,41 @@
+test1_tsvik -> rrel_param1 : scoda_rapid ;;
+test1_tsvik -> rrel_param2 : nrel_spring_type ;;
+test1_tsvik => nrel_main_idtf:
+	[Тестирование агента нахождения автомобилей со схожей деталью 1]
+	(* <- lang_ru;; *);;
+scoda_rapid <- concept_car;;
+scoda_rapid => nrel_spring_type: scoda_rapid_spring;;
+scoda_rapid_spring <- concept_spring_elliptical;;
+audia4 <- concept_car;;
+audia4 => nrel_spring_type: audia4_spring;;
+audia4_spring <- concept_spring_elliptical;;
+mazda6 <- concept_car;;
+mazda6 =>nrel_spring_type: mazda6_spring;;
+mazda6_spring <- concept_spring_elliptical;;
+scoda_rapid => nrel_main_idtf:
+	[Scoda Rapid]
+	(* <- lang_ru;; *);;
+mazda6 => nrel_main_idtf:
+	[Mazda 6]
+	(* <- lang_ru;; *);;
+audia4 => nrel_main_idtf:
+	[Audi A4]
+	(* <- lang_ru;; *);;
+bmw_525 <- concept_car;;
+bmw_525 => nrel_main_idtf:
+	[BMW 525]
+	(* <- lang_ru;; *);;
+bmw_535 <- concept_car;;
+bmw_535 => nrel_main_idtf:
+	[BMW 535]
+	(* <- lang_ru;; *);;
+audia8 <- concept_car;;
+audia8 => nrel_main_idtf:
+	[Audi A8]
+	(* <- lang_ru;; *);;
+bmw_525 => nrel_spring_type: bmw_525_spring;;
+bmw_525_spring <- concept_spring_torsional;;
+bmw_535 => nrel_spring_type: bmw_535_spring;;
+bmw_535_spring <- concept_spring_torsional;;
+audia8 => nrel_spring_type: audia8_spring;;
+audia8_spring <- concept_spring_mainspring;;

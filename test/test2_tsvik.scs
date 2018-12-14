@@ -1,0 +1,20 @@
+test2_tsvik -> rrel_param1 : bmw_525 ;;
+test2_tsvik -> rrel_param2 : nrel_brake_pad_type ;;
+test2_tsvik => nrel_main_idtf:
+	[Тестирование агента нахождения автомобилей со схожей деталью 2]
+	(* <- lang_ru;; *);;
+nrel_brake_pad_type => nrel_main_idtf:
+	[тип тормозных колодок*]
+	(* <- lang_ru;; *);;
+bmw_525 => nrel_brake_pad_type: bmw_525_brake_pad;;
+bmw_525_brake_pad <- concept_drum_brake_pad;;
+bmw_535 => nrel_brake_pad_type: bmw_535_brake_pad;;
+bmw_535_brake_pad <- concept_drum_brake_pad;;
+audia8 => nrel_brake_pad_type: audia8_brake_pad;;
+audia8_brake_pad <- concept_drum_brake_pad;;
+audia6 => nrel_brake_pad_type: audia6_brake_pad;;
+audia6_brake_pad <- concept_disc_brake_pad;;
+scoda_rapid => nrel_brake_pad_type: scoda_rapid_brake_pad;;
+scoda_rapid_brake_pad <- concept_disc_brake_pad;;
+mazda6 => nrel_brake_pad_type: mazda6_brake_pad;;
+mazda6_brake_pad <- concept_disc_brake_pad;;

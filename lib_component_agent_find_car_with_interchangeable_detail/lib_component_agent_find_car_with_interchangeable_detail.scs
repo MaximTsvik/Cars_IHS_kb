@@ -1,0 +1,22 @@
+lib_component_agent_find_car_with_interchangeable_detail => nrel_main_idtf:
+	[Компонент библиотеки. SC-агент поиска моделей машин с аналогичной деталью]
+	(* <- lang_ru;; *);
+	[Library component. SC-agent find cars with interchangeable details]
+	(* <- lang_en;; *);
+
+<- library_of_platform_independent_reusable_components; 
+<- library_of_atomic_reusable_components;
+
+=> nrel_attendant_component: 
+	lib_component_ui_menu_find_car_with_interchangeable_detail;
+
+-> rrel_key_sc_element: 
+	.platform_independent_realization_of_sc_agent_find_car_with_interchangeable_detail;;
+
+sc_node_not_relation -> action_find_car_with_interchangeable_detail;;
+
+action_find_car_with_interchangeable_detail => nrel_main_idtf:
+	[Действие. Поиск моделей машин]
+	(* <- lang_ru;;	*);
+	[Action. Search cars with interchangeable details]
+(* <- lang_en;; *);;

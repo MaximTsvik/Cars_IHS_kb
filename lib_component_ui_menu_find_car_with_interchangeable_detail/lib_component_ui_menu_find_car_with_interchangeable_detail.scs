@@ -1,0 +1,12 @@
+lib_component_ui_menu_find_car_with_interchangeable_detail
+=> nrel_main_idtf:
+	[Компонент библиотеки. Команда пользовательского интерфейса для поиска моделей со схожей запчастью]
+	(* <- lang_ru;; *);
+	[Library component. User interface command of finding cars with interchangeable detail]
+	(* <- lang_en;; *);
+
+<- library_of_platform_independent_reusable_components;
+<- library_of_atomic_reusable_components;
+<- library_of_reusable_components_of_knowledge_bases;;
+
+lib_component_ui_menu_find_car_with_interchangeable_detail = [*^"file://ui_menu_find_car_with_interchangeable_detail.scsi"*];;
