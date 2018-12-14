@@ -10,8 +10,23 @@ lib_component_agent_find_car_with_interchangeable_detail => nrel_main_idtf:
 => nrel_attendant_component: 
 	lib_component_ui_menu_find_car_with_interchangeable_detail;
 
+<- rrel_key_sc_element: 
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			"file://htmls/agent_find_car_with_interchangeable_detail.html"
+				(* <- lang_ru;; *);; 
+		*);;
+	*);
+
+
 -> rrel_key_sc_element: 
 	.platform_independent_realization_of_sc_agent_find_car_with_interchangeable_detail;;
+
 
 sc_node_not_relation -> action_find_car_with_interchangeable_detail;;
 
