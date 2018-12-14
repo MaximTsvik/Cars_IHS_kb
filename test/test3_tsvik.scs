@@ -1,20 +1,20 @@
 test3_tsvik -> rrel_param1 : audia8 ;;
-test3_tsvik -> rrel_param2 : nrel_transmission_type ;;
+test3_tsvik -> rrel_param2 : nrel_transmission_type1 ;;
 test3_tsvik => nrel_main_idtf:
 	[Тестирование агента нахождения автомобилей со схожей деталью 3]
 	(* <- lang_ru;; *);;
-nrel_transmission_type => nrel_main_idtf:
+nrel_transmission_type1 => nrel_main_idtf:
 	[тип трансмиссии*]
 	(* <- lang_ru;; *);;
-audia8 => nrel_transmission_type: audia8_transmission;;
+audia8 => nrel_transmission_type1: audia8_transmission;;
 audia8_transmission <- concept_electric_transmission;;
-audia6 => nrel_transmission_type: audia6_transmission;;
+audia6 => nrel_transmission_type1: audia6_transmission;;
 audia6_transmission <- concept_mechanical_transmission;;
-bmw_525 => nrel_transmission_type: bmw_525_transmission;;
+bmw_525 => nrel_transmission_type1: bmw_525_transmission;;
 bmw_525_transmission <- concept_mechanical_transmission;;
-bmw_535 => nrel_transmission_type: bmw_535_transmission;;
+bmw_535 => nrel_transmission_type1: bmw_535_transmission;;
 bmw_535_transmission <- concept_mechanical_transmission;;
-scoda_rapid => nrel_transmission_type: scoda_rapid_transmission;;
+scoda_rapid => nrel_transmission_type1: scoda_rapid_transmission;;
 scoda_rapid_transmission <- concept_mechanical_transmission;;
-mazda6 => nrel_transmission_type: mazda6_transmission;;
+mazda6 => nrel_transmission_type1: mazda6_transmission;;
 mazda6_transmission <- concept_mechanical_transmission;;
